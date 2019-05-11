@@ -10,7 +10,7 @@
  * @since      : 10/05/2019
  * 
  */
-const u = require('./Utility.js/index.js');
+const u = require('./utility.js');
 const rl = require('readline-sync');
 
 
@@ -18,11 +18,9 @@ var stake=0, goal=0, wins=0, bets=0, trails=0;
 
 stake = rl.questionInt('Enter Stake ');
 goal = rl.questionInt('Enter Goal ');
-        if(stake>=goal){
-            console.log('Goal cannot be less than stake ' );
+        while(stake>=goal){
+            goal = rl.questionInt('Goal cannot be less than stake ' );
         }
-        else{
             trails = rl.questionInt('Enter Trials ');
             u.gambler(stake, goal, trails, bets, wins);
             rl.close;
-        }

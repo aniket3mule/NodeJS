@@ -78,7 +78,7 @@ replaceString(input){
 /*******************Prime Factorization**************************** */
     primeFactor(num) {
         console.log("Prime Factor is:");
-        for (let i = 2; i < num; i++) {
+        for (let i = 2; i*i < num; i++) {
             while (num % i == 0) {
                 console.log(i + " ");
                 num = num / i;
