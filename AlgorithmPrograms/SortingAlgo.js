@@ -11,20 +11,17 @@
 
 
  const u = require('./Utility');
- var arr = [3,4,6,1,8,9,8,58,19];
+ var arr = [38,58,19,6,2,5,6,8,0];
  var arr1 = ['Shubham', 'Saurabh', 'Laxman', 'Nainesh','Aniket']
  var num = 19;
 
  var bubble_int = u.bubbleSort(arr);
  var insertion_int = u.insertionSort(arr1);
-
-
+ bubble_int.forEach(element => {
+     console.log(element);
+ });
+ insertion_int.forEach(element => {
+     console.log(element);
+ });
  
-
-bubble_int.forEach(element => {
-    console.log(element);
-});
-insertion_int.forEach(element => {
-    console.log(element);
-});
 

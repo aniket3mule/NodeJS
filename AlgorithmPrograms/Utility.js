@@ -70,8 +70,6 @@
 
 
      /******************check palindromes********************* */
-
-
      isPalindrome(num1, num2) {
         var str = '';
         num1 = num1+'';
@@ -88,36 +86,33 @@
 
     /******************binarySearch method for integer********************* */
 
-    binarySearchInteger(arr, num){
-        var left = 0;
-        var right = arr.length-1;
-        var arr1 = this.insertionSort(arr);
-        var num1 = parseInt(num);
+    binarySearchInteger(arr, search){
+        var startIndex = 0,
+            stopIndex = arr.length - 1,
+            middle = Math.floor((stopIndex + startIndex) / 2);
 
-        arr1.forEach(element => {
-            console.log(element);
-            
-        });
-        var left = 0;
-        var right = arr1.length-1;
-        var mid = Math.floor((left + right)/2);
-       
-        while(left<right){
-           
-            if (arr1[mid]== num1) {
-                return mid;
-                
+
+        while (arr[middle] != search && startIndex < stopIndex) {
+
+            //adjust search area
+            if (search < arr[middle]) {
+                stopIndex = middle - 1;
+            } else if (search > arr[middle]) {
+                startIndex = middle + 1;
             }
-            else{
-                if (arr1[mid]<num1) {
-                    left = mid-1;
-                }
-                if (arr1[mid]>num1) {
-                    right = mid+1;
-                }
-            }
+
+            //recalculate middle
+            middle = Math.floor((stopIndex + startIndex) / 2);
         }
-        return -1;
+
+        //make sure it's the right value
+        if(arr[middle]==search){
+            return middle;
+        }
+        else{
+            return -1;
+        }
+        
     },
     
     /******************InsertionSearch method for integer********************* */
@@ -145,7 +140,6 @@
 
     bubbleSort(arr){
         var starttime = process.hrtime();
-        
         for (let i = 0; i < arr.length; i++) {
             for (let j = 0; j < arr.length; j++) {
                 if(arr[j]>arr[j+1]){
@@ -174,71 +168,111 @@
     },
 
 
-    /******************Merge Sort Algorithm ********************* */
-
-
-     sort( arr, l, r) { 
-        if (l < r) { 
-            
-            var mid = (l+r)/2; 
-  
-            // Sort first and second halves 
-            this.sort(arr, l, mid); 
-            this.sort(arr , mid+1, r); 
-  
-            // Merge the sorted halves 
-            this.mergeSort(arr, l, mid, r); 
-        } 
-    }, 
-
-    mergeSort(arr, l, mid, r){
-        //finding length of the two subarray;
-        var l1 = mid - l + 1;
-        var l2 = r - mid;
-
-        var list1 = [];
-        var list2 =[];
-        var list3 = [];
-
-        //Copy data of two list into temp 
-        for (let i = 0; i < l1; i++) {
-            list1.push(arr[l+1]);            
-        }
-
-        list1.forEach(element => {
-            console.log(element);
-        });
-
-        for (let j = 0; j < l2; j++) {
-            list2.push(arr[mid+1+j])            
-        }
-        
-        var i=1, j=1,k=1;
-
-        while(i<=l1 && j<=l2) {
-            if(list1[i]<=list2[j]){
-                list3.push(list1[i++]); 
+    /******************Merge Sort Algorithm ********************* */  
+        mergesort(arr) {
+            if (arr.length === 1) {
+                return arr;
             }
-            else{
-                list3.push(list2[j++]);
-            } 
-            k++;
+            const m = Math.floor(arr.length / 2);
+            const left = arr.slice(0, m);
+            const right = arr.slice(m);
+            return this.merge(this.mergesort(left), this.mergesort(right));
+    
+        },
+    
+        merge(left, right) {
+            let result = [];
+            let i = 0;
+            let j = 0;
+    
+            while (i < left.length && j < right.length) {
+                if (left[i] < right[j]) {
+                    result.push(left[i]);
+                    i++;
+                } else {
+                    result.push(right[j]);
+                    j++;
+                }
+            }
+            return result.concat(left.slice(i)).concat(right.slice(j));
+    },
+
+    /************Find the Fewest Notes to be returned for Vending Machine********************************/
+
+    vendingMachine(amount){
+        var notes_arr = [1000, 500, 100, 50, 20, 10, 5, 2, 1];
+        var notes_counters =[];
+
+        for (let i = 0; i < 9; i++) {
+            if (amount>=notes_arr[i]) {
+                notes_counters[i] = Math.floor(amount/notes_arr[i]);
+                if (notes_counters[i]!=0) {
+                    console.log('Number of notes of ', notes_arr[i], 'RS are ', notes_counters[i]);
+                }
+                amount = amount - (notes_counters[i] * notes_arr[i]);  
+            }
+            
         }
-        for(; i<l1;i++){
-            list3.push(list2[i]);
-        }
+    },
+
+
+    /******************Temperature conversion : Celsius to Fahrenheit and Fahrenheit to Celsius**************************/
+
+    celsiusToFehrenheit(celsius){
+        var f = (celsius * 9/5)+32;
+        return f;
+    },
+    fahrenheitToCelsius(Fahrenheit){
+        var c = (Fahrenheit-32) *5/9;
+        return c;
+    },
+
+    /******************calculate monthlyPayment *************************/
+
+    monthlyPayment(p,y,r){
+        var payment, n;
         
-       for(; j<l2;j++){
-            list3.push(list2[j]);
+        n = 12*y;
+        r = r/(12*100);
+
+        payment = ((p*r)/1-(Math.pow((1+r),-n)));
+        return payment;
+    },
+
+
+    /******************Prints the day of the week that date falls on*************************/
+
+    dayOfWeek(m,d,y){
+        var year = (y-(Math.floor(14-m)/12));
+        var x = year+Math.floor((year/4))-Math.floor((year/100))+Math.floor((year/400));
+        var month = m+12 *(Math.floor((14-m)/12))-2;
+        day = Math.ceil(((d+x+Math.floor(31*month/12))%7));
+        return day;
+    },
+
+    /*****************compute the square root of a nonnegative number***********************/
+
+    sqrt(t,epsilon,c){
+        while(  Math.abs(t-c/t) > epsilon*t){
+            t = (c/t + t)/2.0;
         }
-       for (let m = 0; m < list3.length; m++) {
-           console.log(list3);
-           
-       }
+        return t;
+    },
+
+
+    /******************Binary representation of the decimal number*************************/
+
+    decimalToBinary(dec){
+        var d = [],i=0; 
+        
+        while(dec>0){
+            d[i] = parseInt(Math.floor(dec%2));
+            dec = parseInt(dec/2);
+            i++;
+        }
+        return d;
     }
 
-    /********************************************/
 
 
-    
  }

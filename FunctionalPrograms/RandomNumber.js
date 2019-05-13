@@ -9,18 +9,15 @@
  * 
  */
 const u = require('./utility.js');
-const readline = require('readline');
+const rl = require('readline-sync');
 //const rl = readline.createInterface(process.stdin, process.stdout);
 
-var low = 1, high =100;
-var arr = [high+high];
+var n;
+var arr = [];
+n = rl.questionInt('Enter N number of coupon wants to generate : ');
+arr = u.randomNumber(n);
 
-for(var i = 0; i<=high; i++){
-
-   arr.push(u.randomNumber(low,high));
-}
-
-arr.forEach(j => {
-    console.log(arr[j]);
+arr.forEach(element => {
+   console.log(element);
+    
 });
-

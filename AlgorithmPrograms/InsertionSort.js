@@ -13,11 +13,11 @@ const u = require('./Utility');
 const rl = require('readline-sync');
 var n = rl.questionInt('Enter array length : ');
 var arr = [];
-var arr1 =[];
+
 for (let i = 0; i < n; i++) {
-   arr.push(rl.question('Enter String values : '));
+   arr.push(rl.questionInt('Enter String values : '));
 }
-arr1 = u.insertionSort(arr);
-arr1.forEach(element => {
-    console.log(element);
-});
+arr = u.insertionSort(arr);
+for (let i = 0; i < arr.length; i++) {
+    console.log(arr[i]);
+}

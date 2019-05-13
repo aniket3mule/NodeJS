@@ -108,8 +108,17 @@ replaceString(input){
 
 /*************************Random number generator***************************** */
 
-    randomNumber(low, high){
-        return Math.floor(Math.random()*(high-low+1)+low);
+    randomNumber(n){
+        var arr = [];
+        for (var i = 0; i < n; i++) {
+            arr[i] = Math.floor(Math.random() * n);
+            for (var j = 0; j < i; j++) {
+                if (arr[i] == arr[j]) {
+                    i--;
+                }
+            }
+        }
+        return arr;
     },
 
 /*************************Gambler***************************** */
@@ -158,7 +167,7 @@ twoDArray(rows, cols){
         for (let l = 0; l < rows; l++) {
             console.log(arr[k][l] );
         }
-        console.log('');
+        console.log('\n');
     }
 },
 
@@ -197,10 +206,36 @@ stopWatch(starttime, endtime){
 },
 
 
+/************************WindChill Program***************************** */
+
 windChill(t, v){
     var w = 35.74 + 0.6215*t +(0.4275*t - 35.75) * Math.pow(v,0.16);
     console.log('National Weather Service defines the effective temperature to be: ' +w);
 },
+
+/**********************Find the roots of the equation(Quadratic)************************/
+
+quadratic(a, b, c){
+    var root1 =0 ,root2=0;
+    var delta;
+
+    delta = ((b*b) - (4*a*c));
+
+    var sqrt = Math.sqrt(Math.abs(delta));
+   
+    root1 = (-b + sqrt )/(2*a);
+    root2 = (-b - sqrt )/(2*a);
+
+    if (delta>0) {
+        console.log('Roots are real and diffrent : \n Root1 : ' +root1+ '  Root2 : '+root2 );
+        
+    }
+    else if(delta<0){
+        console.log('Roots are Complex : \n' +((-b )/(2*a)).toFixed(2)+ ' +i'+sqrt.toFixed(2)+'\n'+((-b )/(2*a)).toFixed(2)+ ' +i'+sqrt.toFixed(2) );
+    }
+},
+
+
 
 }
 

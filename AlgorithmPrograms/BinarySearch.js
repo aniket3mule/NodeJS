@@ -15,9 +15,18 @@
  var arr = [];
  var arr1 =[];
  for (let i = 0; i < n; i++) {
-    arr.push(rl.questionInt('Enter ${n} Integer values : '));
+    arr.push(rl.questionInt('Enter Integer values : '));
  }
  arr1 = u.bubbleSort(arr);
- arr1.forEach(element => {
-     console.log(element);
- });
+ var num = rl.questionInt('Enter number to find : ')
+
+ var result = u.binarySearchInteger(arr1,num);
+
+ if(result==-1){
+     console.log('Number Not found');
+     
+ }
+ else{
+     console.log('Found at index ' +result);
+     
+ }
