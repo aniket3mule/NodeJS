@@ -16,7 +16,7 @@
 
  var rows, cols;
 
- rows = rl.questionInt('Enter Number of Rows : ');
  cols = rl.questionInt('Enter Number of Columns : ');
+ rows = rl.questionInt('Enter Number of Rows : ');
 
  u.twoDArray(rows, cols);

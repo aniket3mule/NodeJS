@@ -157,17 +157,18 @@ gambler(stake, goal, trails, bets, wins){
 twoDArray(rows, cols){
     const rl = require('readline-sync');
     var arr=[] ;
-    for (let i = 0; i < cols; i++) {
+    for (let i = 0; i < rows; i++) {
         arr[i] = new Array();
-        for (let j = 0; j < rows; j++) {
+        for (let j = 0; j < cols; j++) {
             arr[i][j] = rl.question('Enter Values : ');
         }  
     }
-    for (let k = 0; k < cols; k++) {
-        for (let l = 0; l < rows; l++) {
-            console.log(arr[k][l] );
+    for (let k = 0; k < rows; k++) {
+        for (let l = 0; l < cols; l++) {
+            process.stdout.write(arr[k][l]+' | ');
+         //   console.log( );
         }
-        console.log('\n');
+        console.log();
     }
 },
 

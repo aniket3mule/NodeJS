@@ -16,7 +16,7 @@ const rl = readline.createInterface(process.stdin, process.stdout);
  //Takes the user input
  rl.question('Enter Number to find harmonic of that num:  ',function(input){
      console.log(u.harmonicFuc(input));
-     r1.close();
+     rl.close();
   });
 
       
