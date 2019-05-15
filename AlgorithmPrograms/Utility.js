@@ -187,7 +187,7 @@
     
             while (i < left.length && j < right.length) {
                 if (left[i] < right[j]) {
-                    result.push(left[i]);
+                   result.push(left[i]);
                     i++;
                 } else {
                     result.push(right[j]);

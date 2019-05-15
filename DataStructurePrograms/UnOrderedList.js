@@ -5,7 +5,7 @@
  * @overview   : Read from file the list of Words and take user input to search a Text
  * @author     : Aniket Mule
  * @version    : v8.10.0
- * @since      : 14/05/2019
+ * @since      : 15/05/2019
  * 
  */
 
@@ -16,6 +16,7 @@
 
 
  var words = [];
+ var dis=[];
 
  var arr = fs.readFileSync('./DSTest.txt','utf8');
  words = arr.split(' ');
@@ -25,7 +26,7 @@
     list.addElement(words[i]);         
  }
 
- var dis = list.displayList();
+ dis = list.displayList();
  console.log(dis);
 
  var search = rl.questionInt('Enter element to search : ');
@@ -33,14 +34,23 @@
 
  if (isFound) {
      var ele = list.removeElement(search);
-     console.log('Element found and deleted from the list ' +ele);
+     console.log('Element found and deleted from the list ' +ele+ '\nNew List is : ');
      var dis = list.displayList();
      console.log(dis);
+     fs.writeFileSync('./DSTest.txt',dis.toString());
+     console.log('File Updated sucessfully............');
+     
 
  } 
  else {
    console.log('Element Not found');
-     
+   list.addElement(search);
+   console.log('List After adding element: ');
+   var dis = list.displayList();
+   console.log(dis);
+   fs.writeFileSync('./DSTest.txt',dis);
+    console.log('File Updated sucessfully............');
+   
  }
 
  

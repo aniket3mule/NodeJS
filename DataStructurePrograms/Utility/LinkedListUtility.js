@@ -37,7 +37,7 @@ class LinkedListNode{
         else{
             current = this.head;
 
-            while(current.next){
+            while(current.next!=null){
                 current =current.next;
             }
             current.next = nextNode;
@@ -50,10 +50,10 @@ class LinkedListNode{
 
    displayList(){
        var current = this.head;
-       var str ='';
+       var str = '';
 
        while(current!=null){
-           str = str + current.data+'  ';
+           str = str + current.data + ' ';
            current = current.next;
        }
        return str;
@@ -97,7 +97,32 @@ class LinkedListNode{
    }
 
 
+   /**************Is Empty******************* */
 
+   //It returns true if size is zero
+   isEmpty(){
+       return this.size==0;
+   }
+
+   /*****************Sorting the List*******************/
+
+   sortList(){
+       var temp ;
+       var p = this.size;
+       temp = this.head;
+
+       while(p>0){
+        while(temp.next!=null){
+            if(parseInt(temp.data) > parseInt(temp.next.data)){
+                var t = parseInt(temp.data);
+                temp.data = parseInt(temp.next.data);
+                temp.next.data = t;
+            }
+            temp = temp.next;
+           }
+           p--;
+       }
+   }
 
 
 
