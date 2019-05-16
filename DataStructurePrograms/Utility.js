@@ -28,6 +28,7 @@ const que = new q.Queue();
     },
 
 
+    /********************Prime number check************************* */
     primeCheck(prime){
         for (let i = 2; i < prime; i++) {
             if(prime%i==0){
@@ -36,9 +37,74 @@ const que = new q.Queue();
                 return true;
         }
 
-    }
+    },
+
+
+    /********************Anagram check************************ */
+
+    anagramCheck(str1 , str2){
+        var str1 = str1.toLowerCase();
+        var str2 = str2.toLowerCase();
+        var res1 = str1.split('').sort();
+        var res2 = str2.split('').sort();
+
+        if (res1.length==res2.length) {
+            var j =0 ;
+            while (j<res1.length) {
+                for (let i = j; i < res1.length; i++){
+                    if (res1[j]!= res2[i]) {
+
+                        return false;
+                    }
+                    else{
+                        j++;
+                    }
+                }
+            }
+        }
+        return true;
+    },
+
+
+     /********************Palindrome Number************************ */
+
+     isPalindrome(num1, num2) {
+        var str = '';
+        num1 = num1+'';
+        num2 = num2+'';
+        for (let i = 0; i < num1.length; i++) {
+            str = num1.charAt(i) + str;
+
+        }
+        if (str == num2) {
+            return true;
+        }
+        return false;
+    },
+
+
+    primeReturns(n){
+    let primes = [];
+        let index = 0;
+        for (let i = 2; i < n; i++) {
+            let notPrime = 0;
+    
+            for (let j = 2; j < i ; j++) {
+                if (i % j == 0) {
+                    notPrime = 1;
+                    break;
+                }
+            }
+
+            if (notPrime != 1) {
+                primes[index] = i;
+                index++;
+            }
+        }
+        return primes;
+    },
 
 
 
-
+    
  }

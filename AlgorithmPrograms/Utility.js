@@ -59,7 +59,7 @@
         for (let i = 0; i < arr.length; i++) {
             for (let j = i+1; j < arr.length; j++) {
                 if (this.anagramDetection(arr[i].toString(),arr[j].toString())) {
-                    if (this.isPalindrome(arr[i],arr[j])) {
+                    if (this.isPalindrome(arr[i].toString(),arr[j].toString())) {
                         console.log(arr[i]+'  '+arr[j]);
                     }
                 }
