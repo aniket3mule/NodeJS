@@ -82,6 +82,7 @@ const que = new q.Queue();
         return false;
     },
 
+    /********************Returns the Prime Number************************ */
 
     primeReturns(n){
     let primes = [];
@@ -103,6 +104,12 @@ const que = new q.Queue();
         }
         return primes;
     },
+
+
+    /********************Calendar Logic************************ */
+
+
+    
 
 
 

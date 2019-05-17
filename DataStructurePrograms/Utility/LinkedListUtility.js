@@ -20,9 +20,11 @@ class Node{
 }
     //Class LinkedListNode
 class LinkedListNode{
+    
     LinkedListNode(){
         this.head =null;
         this.size = 0;
+    
     }
 
     /**************Adding Elements******************* */
@@ -104,34 +106,71 @@ class LinkedListNode{
        return this.size==0;
    }
 
-   /*****************Sorting the List*******************/
+   
 
-   sortList(){
-       var temp ;
-       var p = this.size;
-       temp = this.head;
+//    sortList(){
+//        var temp ;
+//        var p = this.size;
+//        temp = this.head;
 
-       while(p>0){
-        while(temp.next!=null){
-            if(parseInt(temp.data) > parseInt(temp.next.data)){
-                var t = parseInt(temp.data);
-                temp.data = parseInt(temp.next.data);
-                temp.next.data = t;
-            }
-            temp = temp.next;
+//        while(p>0){
+//         while(temp.next!=null){
+//             if(parseInt(temp.data) > parseInt(temp.next.data)){
+//                 var t = parseInt(temp.data);
+//                 temp.data = parseInt(temp.next.data);
+//                 temp.next.data = t;
+//             }
+//             temp = temp.next;
+//            }
+//            p--;
+//        }
+//    }
+/*****************Adding Elements in Sorting order*******************/
+   orderedLinkedList(element){
+   
+    var newNode = new Node(element);
+       if(this.head ==null){
+           this.head = newNode;
+       }
+       else{
+           //var temp = this.head;
+          
+           if(this.head.next == null){
+             
+               if(parseInt(this.head.data) > parseInt(newNode.data)){
+                  
+                   newNode.next = this.head;
+                   this.head = newNode;
+               }
+               else{
+                   
+                   this.head.next =newNode;
+               }
            }
-           p--;
+           else{
+               var nxt, prev;
+               
+               nxt = this.head;
+               prev = nxt.next;
+            
+               while(nxt.next!=null){
+                   if(parseInt(nxt.data) > parseInt(newNode.data) && nxt==this.head ){
+                       newNode.next = this.head;
+                       this.head = newNode;
+                   }
+                   if (parseInt(nxt.data) < parseInt(newNode.data) && parseInt(prev.data) > parseInt(newNode.data)) {
+                       newNode.next = nxt.next;
+                       nxt.next = newNode;
+                   }
+                   if (prev.next == null && parseInt(prev.data) < parseInt(newNode.data )) {
+                       prev.next = newNode;
+                   }    
+                   nxt = prev;
+                   prev = nxt.next;
+               }
+           }
        }
    }
-
-
-
-
-
-
-
-
-
 }
 
 
