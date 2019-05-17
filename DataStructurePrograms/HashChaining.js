@@ -15,7 +15,7 @@ hashingArray();
         for (let j = 0; j < num_ele; j++) {
             ele[j] = rl.questionInt('Enter elements : ' );
             var num = ele[j]%11;
-            linked_list[num].addElement(ele[j]);
+            linked_list[num].orderedLinkedList(ele[j]);
         }
 
         for (let k = 0; k < 11; k++) {

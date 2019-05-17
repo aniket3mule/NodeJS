@@ -49,7 +49,3 @@ else{
     fs.writeFileSync('./DSTest.txt',d.toString());
     console.log('File Updated sucessfully............');
 }
-
-
-
- 
