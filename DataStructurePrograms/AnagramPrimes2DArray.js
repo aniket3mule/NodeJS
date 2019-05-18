@@ -19,6 +19,7 @@
  var primes = new Array();
 
 try {
+
  for (let p = 1; p <1000; p++) {
      if(u.primeCheck(p)){
          primes.push(parseInt(p));  

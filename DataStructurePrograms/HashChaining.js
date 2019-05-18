@@ -24,7 +24,34 @@ hashingArray();
             }else{
                 process.stdout.write(" Array ["+k+"] = -------- "+'\n');
             }
-          
         }
+
+        var search = rl.questionInt('Enter Number You want to search : ');
+
+        var linklistseach = search%11;
+        var search_status = linked_list[linklistseach].searchElement(search);
+
+        if(search_status){
+            console.log('Number found in Array['+linklistseach+']');
+        }
+        else{
+            linked_list[linklistseach].addElement(search);
+            console.log('Number Added in hash linked list : ');
+            for (let k = 0; k < 11; k++) {
+                if(linked_list[k]!==null){
+                    process.stdout.write(" Array ["+k+"] : "+linked_list[k].displayList()+'\n');
+                }else{
+                    process.stdout.write(" Array ["+k+"]"+'\n');
+                }
+              
+            }
+        }
+
+
+
+
+
+
+
 
 }

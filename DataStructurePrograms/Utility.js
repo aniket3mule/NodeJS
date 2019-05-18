@@ -109,7 +109,32 @@ const que = new q.Queue();
     /********************Calendar Logic************************ */
 
 
-    
+    /******************Prints the day of the week that date falls on*************************/
+
+    dayOfWeek(d,m,y){
+        var year = (y-(Math.floor(14-m)/12));
+        var x = year+Math.floor((year/4))-Math.floor((year/100))+Math.floor((year/400));
+        var month = m+12 *(Math.floor((14-m)/12))-2;
+        day = Math.ceil(((d+x+Math.floor(31*month/12))%7));
+        return day;
+    },
+
+    /*******************Checking year is leap year or not**************************** */
+    leapYear(input){
+        //varifies input year should be of 4 digit
+        if(input.length==4){
+            //Logic to check the input year is leap year or not
+            if ((input%4==0 && input%100!=0)|| input%400==0) {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        else{
+            return false
+        }
+    },
 
 
 
