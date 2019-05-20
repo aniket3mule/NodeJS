@@ -20,14 +20,14 @@ exp = rl.question('Enter Arithmatic Expression : ');
 
 for (let i = 0; i < exp.length; i++) {
     if(exp[i] == '('){
-        st.pushItem('(');
+        st.pushElement('(');
     }
     if(exp[i]==')'){
-        st.popItem();
+        st.popElement();
     }
 }
 
-if (st.isEmpty()) {
+if (st.isStackeEmpty()) {
     console.log('The given expression is balanced : ');
 }
 else{

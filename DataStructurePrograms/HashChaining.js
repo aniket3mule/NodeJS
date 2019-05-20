@@ -1,3 +1,14 @@
+/**
+ * Purpose     : Hashing Function to search a Number in a slot
+ * 
+ * @file       : HashChaining.js
+ * @overview   : Hashing Function to search a Number in a slot
+ * @author     : Aniket Mule
+ * @version    : v8.10.0
+ * @since      : 17/05/2019
+ * 
+ */
+
 const l = require('./Utility/LinkedListUtility');
 const rl = require('readline-sync');
 const u = require('./Utility');

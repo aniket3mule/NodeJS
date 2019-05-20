@@ -13,9 +13,10 @@
 class Stack{
     constructor(){
         this.item = [];
+        this.top = 0
     }
 
-    
+    /********************Stack using collection library************************* */
 pushItem(element){
     this.item.push(element);
 }
@@ -33,10 +34,27 @@ isEmpty(){
 }
 
 
-printStack(){
+/*************************Stack without using collection librabry***************************** */
+pushElement(element){
+    this.top++;
+    this.item[this.top] = element;
     
 }
 
+
+popElement(){
+    if(this.isEmpty()){
+        return 'Stack is empty: ';
+    }
+    var ele = this.item[this.top];
+    this.top--;
+    return ele
+   
+}
+
+isStackeEmpty(){
+    return this.top == 0;
+}
 
 }
 

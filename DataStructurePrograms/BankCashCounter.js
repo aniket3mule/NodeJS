@@ -18,18 +18,23 @@
 
  var cash = 10000;
 
- que.addItem('Aniket');
- que.addItem('Shubham');
- que.addItem('Laxman');
- que.addItem('Harish');
- que.addItem('Dhoni');
- que.addItem('Saurabh');
+ que.addElement('Aniket');
+ que.addElement('Shubham');
+ que.addElement('Laxman');
+ que.addElement('Harish');
+ que.addElement('Dhoni');
+ que.addElement('Saurabh');
 
  var list = que.printQueue();
  console.log('Number of people in a queue: '+list);
  bankQueue();
 function bankQueue(){
-    var ch = rl.questionInt('\nHi '+que.front()+', Welcome to the bank. \nWhat you want to do?...Press 1 or 2\n\n1: Withdraw Cash\n2: deposit cash\n');
+   // if (que.isStackEmpty()) {
+   //    ch = 3;
+   // }
+   // else{
+    var ch = rl.questionInt('\nHi '+que.frontEle()+', Welcome to the bank. \nWhat you want to do?...Press 1 or 2\n\n1: Withdraw Cash\n2: deposit cash\n');
+   // }
  switch (ch) {
      case 1:
          var amount = rl.questionInt('\nEnter amount you want to withdraw : ');
@@ -41,7 +46,7 @@ function bankQueue(){
             cash -=amount;
             console.log('\nWithdraw successfull......\n');
             que.delItem();
-            var list = que.printQueue();
+            var list = que.print();
             console.log(list);
             bankQueue();
          }
@@ -61,6 +66,10 @@ function bankQueue(){
             bankQueue();
          }
          break;
+         // case 3 : 
+         // console.log('Stack is Empty now..........\n');
+         
+         // break;
      default:
             console.log('\nInvalid Option ..... Try Again...');
             bankQueue();
