@@ -1,4 +1,4 @@
-/**
+/*
  * Purpose     : ­Read from file the list of Words and take user input to search a Text
  * 
  * @file       : UnOrderedList.js
@@ -9,7 +9,7 @@
  * 
  */
 
- const u = require('./LinkedListUtility');
+ const u = require('./Utility/LinkedListUtility');
  const fs = require('fs');
  const rl = require('readline-sync');
  const list = new u.LinkedListNode();

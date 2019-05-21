@@ -1,0 +1,33 @@
+{
+    "Inventory" :[{
+        "Rice":[{
+            "Name" : "Basmati",
+            "weight" : 700,
+            "price" : 57
+        },
+        {
+            "Name" : "Kolam Rice",
+            "weight" : 500,
+            "price" : 40
+        }],
+        "Wheat":[{
+            "Name" : "Rajdhani",
+            "weight" : 500,
+            "price" : 34
+        },{
+            "Name" : "Basmati",
+            "weight" : 400,
+            "price" : 26
+        }],
+        "pulses":[{
+            "Name" : "Basmati",
+            "weight" : 300,
+            "price" : 12
+        },{
+            "Name" : "Rajdhani",
+            "weight" : 250,
+            "price" : 45
+        }]
+
+    }]
+}
