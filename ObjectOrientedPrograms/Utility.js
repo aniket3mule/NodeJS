@@ -59,7 +59,7 @@ module.exports = {
     },
 
 
-    /**********************JSON Inventory Data Management of Rice, Pulses and Wheats******************************** */
+    /**********************Calculate the value of each stock and the total value********************* */
 
     
 

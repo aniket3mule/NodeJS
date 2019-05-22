@@ -1,0 +1,67 @@
+{
+  "Customers": [
+    {
+      "Name": "Aniket",
+      "Shares": 50,
+      "Amount": 50000,
+      "TrasactionDate": "22/5/2019"
+    },
+    {
+      "Name": "Shubham",
+      "Shares": 100,
+      "Amount": 100000
+    },
+    {
+      "Name": "Dhoni",
+      "Shares": 500,
+      "Amount": 2500000
+    },
+    {
+      "Name": "Arti",
+      "Shares": 5000,
+      "Amount": 25000
+    },
+    {
+      "Name": "Shrikant",
+      "Shares": 50,
+      "Amount": 2326
+    },
+    {
+      "Name": "Ashwini",
+      "Shares": 54,
+      "Amount": 12122
+    },
+    {
+      "Name": "Demo",
+      "Shares": 54,
+      "Amount": 45454
+    }
+  ],
+  "CompanyShare": [
+    {
+      "CName": "IBM",
+      "CSymbol": "IBM",
+      "Shares": 10000
+    },
+    {
+      "CName": "Congnizant",
+      "CSymbol": "C",
+      "Shares": 48800
+    },
+    {
+      "CName": "Infosys",
+      "CSymbol": "I",
+      "Shares": 15000
+    },
+    {
+      "CName": "TCS",
+      "CSymbol": "TCS",
+      "Shares": 20000
+    },
+    {
+      "CName": "ThoughWorks",
+      "CSymbol": "TW",
+      "Shares": 25000
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+{
+  "Stocks": [
+    {
+      "Stock_names": "VNET",
+      "Number_of_shares": 100,
+      "Share_price": 10
+    },
+    {
+      "Stock_names": "BIDU",
+      "Number_of_shares": 50,
+      "Share_price": 20
+    },
+    {
+      "Stock_names": "AKAM",
+      "Number_of_shares": 20,
+      "Share_price": 20
+    },
+    {
+      "Stock_names": "GDDY",
+      "Number_of_shares": 70,
+      "Share_price": 25
+    },
+    {
+      "Stock_names": "IBM",
+      "Number_of_shares": 20,
+      "Share_price": 50
+    },
+    {
+      "Stock_names": "TCS",
+      "Number_of_shares": 1000,
+      "Share_price": 100
+    }
+  
+  ]
+}
