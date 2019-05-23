@@ -2,66 +2,89 @@
   "Customers": [
     {
       "Name": "Aniket",
-      "Shares": 50,
-      "Amount": 50000,
-      "TrasactionDate": "22/5/2019"
+      "Shares": 198,
+      "Amount": 46250,
+      "TrasactionDate": "2019-05-23T11:36:50.972Z"
     },
     {
       "Name": "Shubham",
-      "Shares": 100,
-      "Amount": 100000
+      "Shares": 1500,
+      "Amount": 111000,
+      "TrasactionDate": "2019-05-23T05:59:12.365Z"
     },
     {
       "Name": "Dhoni",
       "Shares": 500,
-      "Amount": 2500000
+      "Amount": 2500000,
+      "TrasactionDate": ""
     },
     {
       "Name": "Arti",
-      "Shares": 5000,
-      "Amount": 25000
+      "Shares": 200,
+      "Amount": 25000,
+      "TrasactionDate": ""
     },
     {
       "Name": "Shrikant",
       "Shares": 50,
-      "Amount": 2326
+      "Amount": 2326,
+      "TrasactionDate": ""
     },
     {
       "Name": "Ashwini",
       "Shares": 54,
-      "Amount": 12122
+      "Amount": 12122,
+      "TrasactionDate": ""
     },
     {
       "Name": "Demo",
       "Shares": 54,
-      "Amount": 45454
+      "Amount": 45454,
+      "TrasactionDate": ""
     }
   ],
   "CompanyShare": [
     {
       "CName": "IBM",
       "CSymbol": "IBM",
-      "Shares": 10000
+      "Shares": 1000,
+      "Amount": 104050
     },
     {
       "CName": "Congnizant",
       "CSymbol": "C",
-      "Shares": 48800
+      "Shares": 1402,
+      "Amount": 105050
     },
     {
       "CName": "Infosys",
       "CSymbol": "I",
-      "Shares": 15000
+      "Shares": 15000,
+      "Amount": 100000
     },
     {
       "CName": "TCS",
       "CSymbol": "TCS",
-      "Shares": 20000
+      "Shares": 5000,
+      "Amount": 100000
     },
     {
       "CName": "ThoughWorks",
       "CSymbol": "TW",
-      "Shares": 25000
+      "Shares": 22500,
+      "Amount": 100000
+    },
+    {
+      "CName": "HCL",
+      "CSymbol": "HCL",
+      "Shares": 54,
+      "Amount": 12121
+    },
+    {
+      "CName": "BridgeLabz",
+      "CSymbol": "B",
+      "Shares": 54,
+      "Amount": 142121
     }
   ]
 }

@@ -1,3 +1,6 @@
+const ll = require('./LinkedListUtility');
+const linkedlist = new ll.LinkedListNode();
+
 
 
 class StackNode{
@@ -14,12 +17,10 @@ class StackLinkedList{
     }
 
     pushElement(element){
-    
+        linkedlist.addElement(element);
     }
 
     popElement(){
-        if(this.top == null){
-            return 'Stack is Empty'
-        }
+        
     }
 }

@@ -33,6 +33,7 @@ var search = rl.questionInt('\nEnter a number you want search : \n');
 
 var status = list.searchElement(search);
 
+
 if (status) {
     list.removeElement(search);
     console.log('\nNumber is found and removed from the list and update list is : \n');

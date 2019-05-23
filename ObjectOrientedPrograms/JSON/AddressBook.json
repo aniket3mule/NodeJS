@@ -1,0 +1,20 @@
+{
+  "AddressBook": [
+    {
+      "FirstName": "Aniket",
+      "LastName": "Mule",
+      "MobileNo": 9096388361,
+      "City": "Nagpur",
+      "State": "Maharashtra",
+      "ZipCode": 440026
+    },
+    {
+      "FirstName": "Shubham",
+      "LastName": "Bohari",
+      "MobileNo": 7845212321,
+      "City": "Akola",
+      "State": "Maharashtra",
+      "ZipCode": 410005
+    }
+  ]
+}

@@ -59,7 +59,9 @@ module.exports = {
     },
 
 
-    /**********************Calculate the value of each stock and the total value********************* */
+    
+    
+    
 
     
 

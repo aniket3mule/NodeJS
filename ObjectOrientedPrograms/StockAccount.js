@@ -3,34 +3,31 @@ const stockObj = new utility.StockAccount();
 const fs = require('fs');
 const readline = require('readline-sync');
 
-try {
-    //Purchase shares  
+class StockAccount {
+    options(){
+        console.log('\n\n1. Company Portal');
+        console.log('2. Customer Portal');
+        var ch = readline.questionInt('\nEnter your choice : ');
 
-    // stockObj.createAccount();
-    var j=1;
-    var data = fs.readFileSync('./JSON/StockAccount.json','utf8');
-    var stockData = JSON.parse(data);
-
-    console.log('  Company Name \t\tAvailable Shares');
-    
-    for (let i = 0; i < stockData.CompanyShare.length; i++) {
-        console.log(j+++'. '+stockData.CompanyShare[i].CName+' \t\t\t '+stockData.CompanyShare[i].Shares);
+        switch (ch) {
+            case 1:
+                console.log('1. Add New Company Shares.');
+                console.log('2. List Company details.');
+                var comch = readline.questionInt('\nEnter your choice : ');
+                stockObj.companyPortal(comch);
+                this.options();
+                break;
+            case 2:
+                var custch = readline.questionInt('\n1. New User?\n2. Registered User? : ');
+                stockObj.customerPortal(custch);            
+                break;
+        
+            default:
+                console.log('Invalid option.......... please try again.......');
+                break;
+        }
     }
-
-    var ch = readline.questionInt('Enter which company share you want to purchase : ');
-    // var csymbol = stockData.CompanyShare[ch-1].CSymbol;
-    // console.log(csymbol);
-    
-    var amount = readline.questionInt('Enter Amount : ');
-    if (amount > stockData.CompanyShare[ch-1].Shares ) {
-        console.log('Amount should be less than available shares');
-    }
-    else{
-        stockObj.buyShares(ch, amount,'Shubham');
-    }
-
-    
 }
-catch (error) {
-    console.log(error);
-}
+
+var obj = new StockAccount();
+obj.options();

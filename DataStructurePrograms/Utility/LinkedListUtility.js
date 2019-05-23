@@ -45,7 +45,6 @@ class LinkedListNode{
         this.size++;
     }
 
-
    /**************Displays Elements******************* */
 
    displayList(){
@@ -60,8 +59,7 @@ class LinkedListNode{
    }
 
    /**************Search Element******************* */
-
-
+   
    searchElement(element){
        var current = this.head;
        while(current!=null){
@@ -102,6 +100,28 @@ class LinkedListNode{
    //It returns true if size is zero
    isEmpty(){
        return this.size==0;
+   }
+
+   /**************Delete Last element******************* */
+
+   delAtEnd(){
+       if(this.head == null){
+           return null;
+       }
+       if (this.head.next == null) {
+           var temp = this.head;
+           this.head = null
+           return temp;
+       }
+       var sec_last = this.head;
+
+       while(sec_last.next.next !=null){
+           sec_last = sec_last.next
+       }
+       var temp = sec_last.next;
+       sec_last.next = null;
+       return temp;
+
    }
 
    
@@ -149,7 +169,6 @@ class LinkedListNode{
        }
    }
 }
-
 
 module.exports = {
     LinkedListNode
