@@ -32,12 +32,13 @@
      }
 
      deQueElement(){
-        var str = '';
+        var str ;
          while(this.front!=null){
-         str = str + this.front.data+' ';
+         str = this.front.data;
          this.front = this.front.next;
+         return str;
         }
-        return str;
+        
 
      }
  }

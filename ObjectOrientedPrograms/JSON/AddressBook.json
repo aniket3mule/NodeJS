@@ -1,12 +1,12 @@
 {
   "AddressBook": [
     {
-      "FirstName": "Aniket",
-      "LastName": "Mule",
-      "MobileNo": 9096388361,
-      "City": "Nagpur",
+      "FirstName": "Akshay",
+      "LastName": "Shende",
+      "MobileNo": 5487124587,
+      "City": "Mumbai",
       "State": "Maharashtra",
-      "ZipCode": 440026
+      "ZipCode": 400709
     },
     {
       "FirstName": "Shubham",
@@ -15,6 +15,22 @@
       "City": "Akola",
       "State": "Maharashtra",
       "ZipCode": 410005
+    },
+    {
+      "FirstName": "Aniket",
+      "LastName": "Mule",
+      "MobileNo": 9096388361,
+      "City": "Nagpur",
+      "State": "Maharashtra",
+      "ZipCode": 440026
+    },
+    {
+      "FirstName": "Afroz",
+      "LastName": "Khan",
+      "MobileNo": 808245122,
+      "City": "Mumbai",
+      "State": "Maharashtra",
+      "ZipCode": 440708
     }
   ]
 }

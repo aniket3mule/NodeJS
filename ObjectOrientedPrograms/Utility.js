@@ -9,6 +9,7 @@
  * 
  */
 const readline = require('readline-sync');
+const queue = require('../DataStructurePrograms/Utility/QUsingLinkedList');
 
 module.exports = {
 
@@ -58,14 +59,68 @@ module.exports = {
         }
     },
 
+    /*********************Deck of cards Shuffle the cards using Random method and then
+distribute 9 Cards to 4 Players and Print****************************************** */
 
-    
-    
-    
+    shuffle(array) {
+        var currentIndex = array.length, temporaryValue, randomIndex;
+        // While there remain elements to shuffle...
+        while (0 !== currentIndex) {
+          // Pick a remaining element...
+          randomIndex = Math.floor(Math.random() * currentIndex);
+          currentIndex -= 1;
+      
+          // And swap it with the current element.
+          temporaryValue = array[currentIndex];
+          array[currentIndex] = array[randomIndex];
+          array[randomIndex] = temporaryValue;
+        }
+        return array;
+      },
 
-    
+      distributeCards(suits,ranks){
+          var cards = [];
+          var player1 = [];
+          var player2 =[];
+          var player3 =[];
+          var player4=[];
 
+          for (let i = 0; i < suits.length; i++) {
+              for (let j = 0; j < ranks.length;j++) {
+                cards.push(suits[i]+'-'+ranks[j])
+              }
+          }
+         
+          this.shuffle(cards);
+          for (let i = 1; i <= 4; i++) {
+            console.log('Player '+i);
+            for (let j = 0; j < 9; j++) {
+                var arr = new Array(cards[j]);
+                console.log(arr);
+            }
+        }
+         },
 
-
-
+         distributeCardsUsingLinked(suits,ranks){
+            var cards = [];
+            var qLinkedList = new queue.QLinkedList();
+             
+            for (let i = 0; i < suits.length; i++) {
+                for (let j = 0; j < ranks.length;j++) {
+                  cards.push(suits[i]+'-'+ranks[j])
+                }
+            }
+            for (let i = 0; i < cards.length; i++) {
+                this.shuffle(cards);
+                qLinkedList.enQueElement(cards[i]);
+            }
+            for (let i = 1; i <= 4; i++) {
+                console.log('Player '+i);
+                for (let j = 0; j < 9; j++) {
+                    var arr = new Array(qLinkedList.deQueElement());
+                    arr.sort();
+                    console.log(arr);
+                }
+            }
+         }
 }
