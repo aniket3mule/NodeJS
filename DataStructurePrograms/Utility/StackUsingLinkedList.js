@@ -21,6 +21,11 @@ class StackLinkedList{
     }
 
     popElement(){
-        
+        return linkedlist.delAtEnd();
     }
+}
+
+
+module.exports = {
+    StackLinkedList
 }

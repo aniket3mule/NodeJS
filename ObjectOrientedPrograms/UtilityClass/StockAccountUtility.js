@@ -13,6 +13,8 @@
 
  const readline = require('readline-sync');
  const fs = require('fs');
+ const u = require('../StackUsingLinkedList')
+
 
  class StockAccount{
 
@@ -20,25 +22,90 @@
     constructor(){
         this.data = fs.readFileSync('./JSON/StockAccount.json','utf8');
         this.stockData = JSON.parse(this.data);
+        this.stacklinked = new u.StackLinkedList();
         this.date = new Date();
     }
 
-     createAccount(name){
-         
-         var shares = readline.questionInt('\nEnter Number of shares : ');
-         var amount = readline.questionInt('Enter Amount : ');
 
-         var custInfo = {
-             Name : name,
-             Shares : shares,
-             Amount : amount,
-             TrasactionDate : date
-         }
-         this.stockData.Customers.push(custInfo);
-        //stringify() convert JS value to JSON string
-        //JSON : object that provide methods to convert js value to or from JSON format
-         this.saveData();
-     }
+    companyPortal(ch){
+        switch (ch) {
+            case 1:
+                this.addCompanyShare();
+                console.log('Company added successfully..........');
+                break;
+           case 2:
+                this.companyList();
+                break;
+            case 3:
+                this.showTrasactionHistory();
+                break;
+            default:
+                break;
+        }
+   }
+
+   customerPortal(ch){
+    switch (ch) {
+        case 1:
+           var flag=false;
+
+           var name = readline.question('Enter New Customer Name : ');
+               for (let i = 0; i < this.stockData.Customers.length; i++) {
+                   if (this.stockData.Customers[i].Name == name) {
+                       flag=true;
+                       break;  
+               }
+           }
+           if (flag) {
+               console.log('User already present : ');
+           }else{
+               this.createAccount(name);
+           }
+           
+            break;
+       case 2:
+           var user = readline.question('\nEnter user name : ');
+           var flag=false;
+           for (let i = 0; i < this.stockData.Customers.length; i++) {
+               if (this.stockData.Customers[i].Name == user) {
+                   flag=true;
+                   break;  
+               }
+           }
+           if (flag) {
+               this.customerOprations(user);
+           }
+           else{
+               console.log('\nUser not found....');
+           }
+            break;
+        default:
+           console.log('Invalid Option. Please try again............');      
+            break;
+    }
+}
+
+customerOprations(user){
+    var custch = readline.questionInt('\nWhat you want to do?\n1. Buy Shares\n2. Sell Shares\n3. Display Company Shares\n4. Save Data : ');
+    switch (custch) {
+        case 1:
+            this.buyShares(user);
+            break;
+        case 2:
+            this.sellShares(user);
+            break;
+        case 3:
+            this.companyList();
+            break;
+        case 4:
+            this.saveData();
+            break;
+       
+        default:
+        console.log('Invalid Option...........');
+            break;
+    }
+ }
 
      addCompanyShare(){
         var cname = readline.question('\nEnter Company Name : ');
@@ -58,6 +125,40 @@
        //JSON : object that provide methods to convert js value to or from JSON format
         this.saveData();
      }
+
+     companyList(){
+        var j=1;
+        console.log('  Company Name \t\tAvailable Shares');
+    
+        for (let i = 0; i < this.stockData.CompanyShare.length; i++) {
+            console.log(j+++'. '+this.stockData.CompanyShare[i].CName+' \t\t\t '+this.stockData.CompanyShare[i].Shares);
+        }
+     }
+
+     showTrasactionHistory(){
+         this.stacklinked.pushElement();
+        for (let i = 0; i < this.stockData.TransactionHistory.length; i++) {
+            console.log(this.stacklinked.popElement());
+        }
+         
+     }
+
+     createAccount(name){
+         
+        var shares = readline.questionInt('\nEnter Number of shares : ');
+        var amount = readline.questionInt('Enter Amount : ');
+
+        var custInfo = {
+            Name : name,
+            Shares : shares,
+            Amount : amount,
+            TrasactionDate : date
+        }
+        this.stockData.Customers.push(custInfo);
+       //stringify() convert JS value to JSON string
+       //JSON : object that provide methods to convert js value to or from JSON format
+        this.saveData();
+    }
 
      buyShares(user){
         var j=1;
@@ -84,14 +185,24 @@
                     this.stockData.Customers[i].TrasactionDate = this.date;
                     this.stockData.CompanyShare[ch-1].Shares = this.stockData.CompanyShare[ch-1].Shares - Math.floor((amount/70));
                     this.stockData.CompanyShare[ch-1].Amount = this.stockData.CompanyShare[i].Amount + amount;
+
+  /***************maintain the Stock Symbol Purchased or Sold in a Stack implemented using Linked List*** */
+                    var str = 'Company Symbol : ';
+                    str = str + this.stockData.CompanyShare[ch-1].CSymbol+' Trasaction done sold to the customer : '+this.date;
+                    var transhistory = {
+                        Sold : str  
+                    }
+                    this.stockData.TransactionHistory.push(transhistory);
+                    
                 }
             }
         }
         var json = JSON.stringify(this.stockData,null,2);
         fs.writeFileSync('./JSON/StockAccount.json',json);
         console.log('Buying successfully done : File updated........');
-        
      }
+
+
      sellShares(user){
         var j=1;
         console.log('  Company Name ');
@@ -105,7 +216,7 @@
             ch = readline.questionInt('Enter which company share you want to purchase : ');
         }
         var amount = readline.questionInt('Enter Amount : ');
-        if (shares > this.stockData.Customers[ch-1].Shares ) {
+        if (amount > this.stockData.Customers[ch-1].amount ) {
             console.log('Shares not available in your account : ');
         }
         else{
@@ -116,7 +227,12 @@
                     this.stockData.Customers[i].TrasactionDate = this.date;
                     this.stockData.CompanyShare[ch-1].Shares = this.stockData.CompanyShare[ch-1].Shares + Math.floor((amount/70));
                     this.stockData.CompanyShare[ch-1].Amount = this.stockData.CompanyShare[ch-1].Amount + amount;
-                    break;
+                    var str = 'Company Symbol : ';
+                    str = str + this.stockData.CompanyShare[ch-1].CSymbol+' Trasaction done Buy to the customer : '+this.date;
+                    var transhistory = {
+                        Buy : str  
+                    }
+                    this.stockData.TransactionHistory.push(transhistory);
                 }
             }
         }
@@ -125,93 +241,6 @@
         console.log('Shares selling done : Account updated .......');
 
      }
-
-     companyList(){
-        var j=1;
-        console.log('  Company Name \t\tAvailable Shares');
-    
-        for (let i = 0; i < this.stockData.CompanyShare.length; i++) {
-            console.log(j+++'. '+this.stockData.CompanyShare[i].CName+' \t\t\t '+this.stockData.CompanyShare[i].Shares);
-        }
-     }
-
-     customerPortal(ch){
-         switch (ch) {
-             case 1:
-                var flag=false;
-
-                var name = readline.question('Enter New Customer Name : ');
-                    for (let i = 0; i < this.stockData.Customers.length; i++) {
-                        if (this.stockData.Customers[i].Name == name) {
-                            flag=true;
-                            break;  
-                    }
-                }
-                if (flag) {
-                    console.log('User already present : ');
-                }else{
-                    this.createAccount(name);
-                }
-                
-                 break;
-            case 2:
-                var user = readline.question('\nEnter user name : ');
-                var flag=false;
-                for (let i = 0; i < this.stockData.Customers.length; i++) {
-                    if (this.stockData.Customers[i].Name == user) {
-                        flag=true;
-                        break;  
-                    }
-                }
-                if (flag) {
-                    this.customerOprations(user);
-                }
-                else{
-                    console.log('\nUser not found....');
-                }
-                 break;
-             default:
-                console.log('Invalid Option. Please try again............');      
-                 break;
-         }
-     }
-
-     customerOprations(user){
-        var custch = readline.questionInt('\nWhat you want to do?\n1. Buy Shares\n2. Sell Shares\n3. Display Company Shares\n4. Save Data : ');
-        switch (custch) {
-            case 1:
-                this.buyShares(user);
-                break;
-            case 2:
-                this.sellShares(user);
-                break;
-            case 3:
-                this.companyList();
-                break;
-            case 4:
-                this.saveData();
-                break;
-           
-            default:
-            console.log('Invalid Option...........');
-                break;
-        }
-     }
-
-     companyPortal(ch){
-         switch (ch) {
-             case 1:
-                 this.addCompanyShare();
-                 console.log('Company added successfully..........');
-                 break;
-            case 2:
-                 this.companyList();
-                 
-                 break;
-             default:
-                 break;
-         }
-    }
 
     saveData(){
             //stringify() convert JS value to JSON string

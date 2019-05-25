@@ -2,9 +2,9 @@
   "Customers": [
     {
       "Name": "Aniket",
-      "Shares": 198,
-      "Amount": 46250,
-      "TrasactionDate": "2019-05-23T11:36:50.972Z"
+      "Shares": 219,
+      "Amount": 44740,
+      "TrasactionDate": "2019-05-25T05:39:05.209Z"
     },
     {
       "Name": "Shubham",
@@ -48,13 +48,13 @@
       "CName": "IBM",
       "CSymbol": "IBM",
       "Shares": 1000,
-      "Amount": 104050
+      "Amount": 105060
     },
     {
       "CName": "Congnizant",
       "CSymbol": "C",
-      "Shares": 1402,
-      "Amount": 105050
+      "Shares": 1381,
+      "Amount": 106160
     },
     {
       "CName": "Infosys",
@@ -85,6 +85,17 @@
       "CSymbol": "B",
       "Shares": 54,
       "Amount": 142121
+    }
+  ],
+  "TransactionHistory": [
+    {
+      "Sold": "Company Symbol : C Trasaction done sold to the customer : Sat May 25 2019 11:05:56 GMT+0530 (IST)"
+    },
+    {
+      "Sold": "Company Symbol : C Trasaction done sold to the customer : Sat May 25 2019 11:08:37 GMT+0530 (IST)"
+    },
+    {
+      "Buy": "Company Symbol : C Trasaction done Buy to the customer : Sat May 25 2019 11:09:05 GMT+0530 (IST)"
     }
   ]
 }

@@ -12,7 +12,7 @@ class StockAccount {
         switch (ch) {
             case 1:
                 console.log('1. Add New Company Shares.');
-                console.log('2. List Company details.');
+                console.log('2. List Company details.\n3. View Trasaction History');
                 var comch = readline.questionInt('\nEnter your choice : ');
                 stockObj.companyPortal(comch);
                 this.options();

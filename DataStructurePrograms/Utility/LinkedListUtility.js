@@ -109,7 +109,7 @@ class LinkedListNode{
            return null;
        }
        if (this.head.next == null) {
-           var temp = this.head;
+           var temp = this.head.data;
            this.head = null
            return temp;
        }
@@ -118,7 +118,7 @@ class LinkedListNode{
        while(sec_last.next.next !=null){
            sec_last = sec_last.next
        }
-       var temp = sec_last.next;
+       var temp = sec_last.next.data;
        sec_last.next = null;
        return temp;
 

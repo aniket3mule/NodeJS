@@ -1,0 +1,20 @@
+{
+    "Doctors" : [
+        {
+            "DoctorName" : "",
+            "DocID" :       100,
+            "Specialization" : "",
+            "Availability" : "AM"
+        }
+    ],
+    "Appointments" : [
+        {
+            "DoctorName" : "",
+            "ADate" : "11-11-2019",
+            "ATime" : "AM",
+            "PName" : "",
+            "TotalApps" : 0 
+
+        }
+    ]
+}
