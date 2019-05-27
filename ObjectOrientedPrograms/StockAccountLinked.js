@@ -38,6 +38,7 @@ class StockLinkedList extends Stock {
                     break;
                 case "3":
                     this.printList();
+
                     break;
                 default:
                     console.log("Enter valid choice");

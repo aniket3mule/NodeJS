@@ -1,20 +1,51 @@
 {
-    "Doctors" : [
-        {
-            "DoctorName" : "",
-            "DocID" :       100,
-            "Specialization" : "",
-            "Availability" : "AM"
-        }
-    ],
-    "Appointments" : [
-        {
-            "DoctorName" : "",
-            "ADate" : "11-11-2019",
-            "ATime" : "AM",
-            "PName" : "",
-            "TotalApps" : 0 
-
-        }
-    ]
+  "Doctors": [
+    {
+      "DoctorName": "Aniket Mule",
+      "DocID": 100,
+      "Specialization": "Heart Surgeon",
+      "Availability": "AM"
+    },
+    {
+      "DoctorName": "Shubham Bohari",
+      "DocID": 101,
+      "Specialization": "Bone Expert",
+      "Availability": "Both"
+    },
+    {
+      "DoctorName": "Akshay Shende",
+      "DocID": 102,
+      "Specialization": "Cardiologists",
+      "Availability": "Both"
+    },
+    {
+      "DoctorName": "Laxman",
+      "DocID": 103,
+      "Specialization": "heart surgeon",
+      "Availability": "pm"
+    }
+  ],
+  "Appointments": [
+    {
+      "DoctorName": "Akshay Shende",
+      "ADate": "11/11/2019",
+      "ATime": "AM",
+      "PName": "Aniket, Shubham, Arti, Laxman, Afroz",
+      "TotalApps": 5
+    },
+    {
+      "DoctorName": "Akshay Shende",
+      "ADate": "11/20/2019",
+      "ATime": "AM",
+      "PName": "Arti, Aniket, ",
+      "TotalApps": 2
+    },
+    {
+      "DoctorName": "Aniket Mule",
+      "ADate": "12/20/2019",
+      "ATime": "AM",
+      "PName": "Arti, ",
+      "TotalApps": 1
+    }
+  ]
 }
