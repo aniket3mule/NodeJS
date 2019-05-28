@@ -54,7 +54,6 @@ class AddressBook{
                     obj.saveData();
                 }
                 break;
-            
             case 5.:
                 obj.printAddressBook();
                 break;
@@ -119,9 +118,11 @@ class AddressBook{
         if (flag) {
             delete this.addressbook.AddressBook[ch];
             this.saveData();
+            return 'Entry Deleted from the file'
         }
         else{
             console.log('Entry not found in address book......'); 
+            return 'Entry not found in address book......'
         }
     }
 

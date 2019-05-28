@@ -19,7 +19,9 @@ replaceString(input){
     // check if user input string greater than 3 or not
     if(len>=3){
         var out = str.replace('<<username>>',input);
-        return out;
+        console.log(out);
+        
+        return "name changes Successfully"
         }
     else{
         return 'Enter name with more than 3 char';        
@@ -49,8 +51,10 @@ replaceString(input){
 
 /*******************Checking year is leap year or not**************************** */
     leapYear(input){
+        console.log("input",input);
+        
         //varifies input year should be of 4 digit
-        if(input.length==4){
+        if(input.length===4){
             //Logic to check the input year is leap year or not
             if ((input%4==0 && input%100!=0)|| input%400==0) {
                 return 'year is leap year';
@@ -71,7 +75,9 @@ replaceString(input){
         for (var i = 1; i <= input; i++) {
            sum += 1/i; 
         }
-        return input+ 'th Harmonic value is : '+sum;
+        console.log(input+ 'th Harmonic value is : '+sum);
+        return "Series successfully"
+         
     },
 
 

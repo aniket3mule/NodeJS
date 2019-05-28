@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha || true"
   },
   "repository": {
     "type": "git",
@@ -15,5 +15,9 @@
   "bugs": {
     "url": "https://github.com/aniket3mule/NodeJS/issues"
   },
-  "homepage": "https://github.com/aniket3mule/NodeJS#readme"
+  "homepage": "https://github.com/aniket3mule/NodeJS#readme",
+  "dependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^6.1.4"
+  }
 }
