@@ -20,7 +20,8 @@ class AddressBook{
     /************************Main function. Program starts with this function ******************************** */
     addressBook(){
         console.log('------------Address Book---------------');
-        var ch = readline.questionInt('\nEnter your choice : \n1. Add new entry in address book.\n2. Delete entry from address book.\n3. Update details in address book.\n4. Sort address book.\n5. Print address book.\n');
+        console.log('\n1. Add new entry in address book.\n2. Delete entry from address book.\n3. Update details in address book.\n4. Sort address book.\n5. Print address book.\n');
+        var ch = readline.questionInt('Enter your choice : \n');
         switch (ch) {
             case 1.:
                 obj.addPerson();
@@ -154,7 +155,6 @@ class AddressBook{
         else{
             console.log('User Not found : ');
         }
-        
     }
 
     /*****************************Sort address book by zip code.********************************* */
